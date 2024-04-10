@@ -35,6 +35,7 @@ bookModel.hasOne(bookFineModel);
 sequelize
   .sync({ alter: true })
   .then((result) => {
+    // server will start listening only if database integration is complete
     app.listen(PORT, () => {
       console.log(`Server Listening on port ${PORT}`);
     });
