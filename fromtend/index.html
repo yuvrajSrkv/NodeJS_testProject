@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NodeJs Test Project</title>
+    <style>
+      body {
+        background-color: aliceblue;
+      }
+      .searchArea {
+        padding: 5px;
+        margin: 20px;
+        background-color: antiquewhite;
+      }
+
+      .bookEntry {
+        padding: 5px;
+        margin: 20px;
+        background-color: aqua;
+      }
+
+      .bookReturn {
+        padding: 5px;
+        margin: 20px;
+        background-color: aquamarine;
+      }
+
+      .BookArea {
+        padding: 15px;
+        margin: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="searchArea">
+      <form id="myForm">
+        <div class="inputArea">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Enter Book Name"
+            class="input"
+          />
+        </div>
+        <div class="submitArea">
+          <input type="submit" value="SUBMIT" class="btn" />
+        </div>
+      </form>
+    </div>
+    <div class="bookEntry" id="bookEntry"></div>
+    <div class="bookReturn" id="bookReturn"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

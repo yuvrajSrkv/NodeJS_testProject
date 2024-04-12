@@ -1,7 +1,7 @@
-const Sequelize = reuire('sequelize');
-const sequelize = new Sequelize('nodeJsTest','root','Ramkeshav72@',{dialect : 'mysql',host: 'localhost'});
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('nojejstest','root','Ramkeshav72@',{dialect : 'mysql',host: 'localhost'});
 
-try{
+try{   
     sequelize.authenticate();
     console.log('connection has been established successfully');
 }catch(e){

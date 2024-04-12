@@ -5,13 +5,35 @@ const sequelize = require("./db/db");
 const app = express();
 const PORT = process.env.PORT;
 
+// models
+const bookModel = require("./model/books");
+const bookEntryModel = require("./model/bookEntry");
+const bookReturnModel = require("./model/bookReturn");
+const bookFineModel = require("./model/bookFine");
+
 // middlewares
 app.use(express.json());
 app.use(cors());
 
+// routes exporting
+const bookEntry = require("./routes/bookEntry");
+const bookReturn = require("./routes/bookReturn");
+
+// routes
+app.use("/bookentry", bookEntry);
+app.use("/bookReturn", bookReturn);
+
+// db associations
+// bookEntryModel.belongsTo(bookModel);
+bookModel.hasOne(bookEntryModel);
+bookModel.hasOne(bookReturnModel);
+bookModel.hasOne(bookFineModel);
+// bookReturnModel.belongsTo(bookModel);
+// bookFineModel.belongsTo(bookModel);
+
 // db integration
 sequelize
-  .sync({ alert: true })
+  .sync({ alter: true })
   .then((result) => {
     app.listen(PORT, () => {
       console.log(`Server Listening on port ${PORT}`);
